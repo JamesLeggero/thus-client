@@ -17,17 +17,11 @@ img {
   }
 }
 
-.signup-container {
-  padding: 200px 0;
-  
-  
-  
-  form {
-    
+.signup-container, .login-container {
+  padding: 200px 0; 
+  form {  
     margin: 0 auto;
-
-    width: 800px;
-    
+    width: 800px;  
     // background-color: red;
   }
   #submit {

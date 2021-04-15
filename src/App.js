@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Landing from './components/Landing'
 import Signup from './components/Signup'
+import Login from './components/Login'
 import './App.scss';
 import tarotPool from './img/tarotPool';
 
@@ -19,6 +20,11 @@ function App() {
         <Route exact path='/signup' render={props => {
           return (
             <Signup tarotPool={tarotPool} />
+          )
+        }} />
+        <Route exact path='/login' render={props => {
+          return (
+            <Login tarotPool={tarotPool} />
           )
         }} />
       </Switch>

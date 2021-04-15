@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Signup(props) {
+export default function Login(props) {
     const { emperor, priestess, chariot } = props.tarotPool
     return (
-        <div className='signup-container'>
+        <div className='login-container'>
             <form onSubmit={(event)=>{
                 event.preventDefault()
                 console.log('submitted')}}>
@@ -17,9 +17,6 @@ export default function Signup(props) {
                     <img src={priestess} alt='The High Priestess' />
                     <label htmlFor='password'>
                         <input type='password' name='password' />
-                    </label>
-                    <label htmlFor='passwordB'>
-                        <input type='password' name='passwordB' />
                     </label>
                 </div>
                 <label htmlFor='submit'>
