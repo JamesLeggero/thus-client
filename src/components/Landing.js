@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Landing(props) {
+export default function Landing(props) {
 
-    const { world, fool, hermit } = props.tarotPool
+    const { wheel, fool, hermit } = props.tarotPool
     return (
         <div className='landing-container'>
-            <img src={world} alt='The World' />
+            <img src={wheel} alt='Wheel of Fortune' />
             <img src={fool} alt='The Fool' />
             <img src={hermit} alt='The Hermit' />
             
@@ -13,5 +13,3 @@ function Landing(props) {
         </div>
     )
 }
-
-export default Landing

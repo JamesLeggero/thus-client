@@ -15,3 +15,49 @@ img {
     margin: 25px
   }
 }
+
+.signup-container {
+  padding: 200px 0;
+  
+  
+  
+  form {
+    
+    margin: 0 auto;
+
+    width: 800px;
+    
+    // background-color: red;
+  }
+  #submit {
+    // display: inline;
+    height: 175px;
+    filter: invert(1);
+    // padding: 0px 20px 35px 40px;
+    margin: 60px 0 65px 20px
+    
+  }
+  .email-container, .password-container {
+    display: inline-block;
+    // border: 2px solid gold;
+    margin: 25px;
+    width: 250px;
+    // display: block;
+    // background-color: blue;
+      img {
+        height: 250px;
+        display: block;
+        margin: 0 auto;
+        // margin: 25px auto;
+      }
+      input {
+        width: 97%;
+        margin: 15px auto 0 auto;
+        display: block;
+        text-align: center;
+      }
+    }
+  
+}
+  
+
