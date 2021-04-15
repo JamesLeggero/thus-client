@@ -1,7 +1,8 @@
 .App {
   text-align: center;
   background-color: black;
-  height: 100vh
+  height: 100vh;
+  // overflow-y: hidden;
 }
 
 img {
@@ -41,6 +42,10 @@ img {
     display: inline-block;
     // border: 2px solid gold;
     margin: 25px;
+    vertical-align: top;
+    // margin-top: 0;
+    // margin: 0 auto;
+    
     width: 250px;
     // display: block;
     // background-color: blue;

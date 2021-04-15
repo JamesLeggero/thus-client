@@ -15,8 +15,11 @@ export default function Signup(props) {
                 </div>
                 <div className='password-container'>
                     <img src={priestess} alt='The High Priestess' />
-                    <label htmlFor='password'>
-                        <input type='text' name='password' />
+                    <label htmlFor='passwordA'>
+                        <input type='password' name='passwordA' />
+                    </label>
+                    <label htmlFor='passwordB'>
+                        <input type='password' name='passwordB' />
                     </label>
                 </div>
                 <label htmlFor='submit'>
