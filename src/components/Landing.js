@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link  } from 'react-router-dom'
 
 export default function Landing(props) {
 
@@ -6,8 +7,12 @@ export default function Landing(props) {
     return (
         <div className='landing-container'>
             <img src={wheel} alt='Wheel of Fortune' />
-            <img src={fool} alt='The Fool' />
-            <img src={hermit} alt='The Hermit' />
+            <Link to={'/signup'}>
+                <img src={fool} alt='The Fool' />
+            </Link>
+            <Link to={'/login'} >
+                <img src={hermit} alt='The Hermit' />
+            </Link>
             
 
         </div>
