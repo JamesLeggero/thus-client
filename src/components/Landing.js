@@ -1,11 +1,14 @@
 import React from 'react'
 
-function Landing() {
-    return (
-        <>
-            <h1> This Is Thus</h1>
+function Landing(props) {
 
-        </>
+    const { world, fool, hermit } = props.tarotPool
+    return (
+        <div className='landing-container'>
+            <img src={world} alt='The World' />
+            
+
+        </div>
     )
 }
 
