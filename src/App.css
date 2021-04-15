@@ -1,7 +1,19 @@
 .App {
   text-align: center;
+  background-color: black;
+  height: 100vh
+}
+
+img {
+  filter: invert(1)
+}
+
+.landing-container {
+  padding: 200px 0;
+  
 }
 
 .landing-container > img {
-  height: 400px
+  height: 300px;
+  margin: 25px
 }

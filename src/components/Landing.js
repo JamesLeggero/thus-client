@@ -6,6 +6,8 @@ function Landing(props) {
     return (
         <div className='landing-container'>
             <img src={world} alt='The World' />
+            <img src={fool} alt='The Fool' />
+            <img src={hermit} alt='The Hermit' />
             
 
         </div>
