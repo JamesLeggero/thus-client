@@ -10,10 +10,8 @@ img {
 
 .landing-container {
   padding: 200px 0;
-  
-}
-
-.landing-container > img {
-  height: 300px;
-  margin: 25px
+  img {
+    height: 300px;
+    margin: 25px
+  }
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Landing from './components/Landing'
-import './App.css';
+import './App.scss';
 import tarotPool from './img/tarotPool';
 
 function App() {
