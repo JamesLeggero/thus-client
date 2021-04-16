@@ -33,20 +33,6 @@ export default function Account(props) {
                         <input type='image' id='delete-account-input' name='submit' src={tower} alt="The Tower" />
                     </label>
                 </form>
-                
-         
-            
-            {/* <form id='logout' onSubmit={event=>{
-                    event.preventDefault()
-                    console.log('logout initiated')
-                }}>
-                    <label htmlFor='logout'>
-                        <input type='image' id='logout-input' name='submit' src={death} alt="Death" />
-                    </label>
-                </form> */}
-            {/* <div className='logout-container' >
-                <img src={death} alt='Death' />
-            </div> */}
             
         </div>
             
