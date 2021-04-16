@@ -66,5 +66,66 @@ img {
     }
   
 }
+
+.dashboard-container {
+ 
+  padding: 200px 0;
+  background-color: black;
+  .to-account-container, .logout-container {
+    display: inline-block;
+    vertical-align: top;
+  }
+  img {
+    display: block;
+    height: $card-height;
+    width: $card-width;
+    margin: 25px
+  }
+  #user-draw {
+    display: inline;
+    #user-draw-input {
+
+      width: $card-width;
+      height: $card-height;
+      margin: 25px
+    }
+    filter: invert(1);
+  }
+  #logout {
+    display: inline;
+    #logout-input {
+
+      width: $card-width;
+      height: $card-height;
+      margin: 25px
+    }
+    filter: invert(1);
+  }
+}
+
+.account-container {
+  padding: 200px 0;
+  #stock-add, #delete-account {
+    display: inline;
+    #stock-add-input, #delete-account-input {
+
+      width: $card-width;
+      height: $card-height;
+      margin: 25px
+    }
+    filter: invert(1);
+  }
+  .back-to-dashboard-container {
+    // padding: 200px 0;
+    img {
+      display: block;
+      height: $card-height;
+      width: $card-width;
+      margin: 25px
+    }
+    display: inline-block;
+    vertical-align: top;
+  }
+}
   
 

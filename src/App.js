@@ -3,6 +3,8 @@ import { Route, Switch } from 'react-router-dom'
 import Landing from './components/Landing'
 import Signup from './components/Signup'
 import Login from './components/Login'
+import Dashboard from './components/Dashboard'
+import Account from './components/Account'
 import './App.scss';
 import tarotPool from './img/tarotPool';
 
@@ -27,6 +29,17 @@ function App() {
             <Login tarotPool={tarotPool} />
           )
         }} />
+        <Route exact path='/dashboard' render={props => {
+          return (
+            <Dashboard tarotPool={tarotPool} />
+          )
+        }} />
+        <Route exact path='/account' render={props => {
+          return (
+            <Account tarotPool={tarotPool} />
+          )
+        }} />
+
       </Switch>
       
     </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function Signup(props) {
-    const { emperor, priestess, chariot } = props.tarotPool
+    const { emperor, priestess, wheel } = props.tarotPool
     return (
         <div className='signup-container'>
             <form onSubmit={(event)=>{
@@ -23,7 +23,7 @@ export default function Signup(props) {
                     </label>
                 </div>
                 <label htmlFor='submit'>
-                    <input type='image' id='submit' name='submit' src={chariot} alt="The chariot" />
+                    <input type='image' id='submit' name='submit' src={wheel} alt="The Wheel of Fortune" />
                 </label>
             </form>
         </div>
