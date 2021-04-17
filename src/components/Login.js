@@ -12,7 +12,7 @@ export default function Login(props) {
 
     return (
         <div className='login-container'>
-            <form onSubmit={props.handleUserLogin}>
+            <form id='login' onSubmit={props.handleUserLogin}>
                 <div className='email-container'>
                     <img src={emperor} alt='The Emperor' />
                     <label htmlFor='email'>

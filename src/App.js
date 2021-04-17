@@ -33,7 +33,7 @@ function App() {
   const handleUserLogin = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3001/api/users/login", {
+      const response = await axios.post(`http://localhost:3001/api/users/${event.target.id}`, { //lets me use login OR signup with respective id in form field
         email: userState.email,
         password: userState.password,
       });
@@ -75,7 +75,7 @@ function App() {
           exact
           path="/signup"
           render={(props) => {
-            return <Signup tarotPool={tarotPool} />;
+            return <Signup tarotPool={tarotPool} handleUserInput={handleUserInput} handleUserLogin={handleUserLogin}/>;
           }}
         />
         <Route
