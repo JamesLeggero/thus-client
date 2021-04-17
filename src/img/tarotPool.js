@@ -21,7 +21,7 @@ import tower from './images/tower.png'
 import wheel from './images/wheel.png'
 import world from './images/world.png'
 
-const tarotPool = {
+const tarotPool = [
     fool,
     magician,
     priestess,
@@ -44,6 +44,6 @@ const tarotPool = {
     sun,
     judgement,
     world
-}
+]
 
 export default tarotPool

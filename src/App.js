@@ -10,8 +10,7 @@ import "./App.scss";
 import tarotPool from "./img/tarotPool";
 
 function App() {
-
-  const history = useHistory()
+  const history = useHistory();
 
   const [user, setUser] = useState({
     // id: "",
@@ -21,51 +20,90 @@ function App() {
 
   const [userState, setUserState] = useState({});
 
-  const [drawResult, setDrawResult] = useState({})
+  const [cards, setCards] = useState([]);
 
-  const handleUniversalDraw = async event => {
-    event.preventDefault()
-    const response = await axios.post(`http://localhost:3001/api/draws`, {userId: 0})
-    const { data } = response
-    setDrawResult(data)
-    await console.log(data)
+  const initialLandingState = [
+    {
+      rank: 10,
+      reversed: false,
+    },
+    {
+      rank: 0,
+      reversed: false,
+    },
+    {
+      rank: 9,
+      reversed: false,
+    },
+  ];
 
-  }
+  const [drawResult, setDrawResult] = useState({});
 
-  const handleUserInput = event => {
-    setUserState({...userState, [event.target.name]: event.target.value})
-  }
+  const handleUniversalDraw = async (event) => {
+    event.preventDefault();
+    const response = await axios.post(`http://localhost:3001/api/draws`, {
+      userId: 0,
+    });
+    const { data } = response;
+    const { tarotRadix } = data;
+    await setDrawResult(data);
+    setCards([
+      {
+        rank: tarotRadix[0][0],
+        reversed: tarotRadix[0][1],
+      },
+      {
+        rank: tarotRadix[1][0],
+        reversed: tarotRadix[1][1],
+      },
+      {
+        rank: tarotRadix[2][0],
+        reversed: tarotRadix[2][1],
+      },
+    ]);
+    await console.log(data.tarotRadix);
+  };
+
+  const handleUserInput = (event) => {
+    setUserState({ ...userState, [event.target.name]: event.target.value });
+  };
 
   const handleUserLogin = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post(`http://localhost:3001/api/users/${event.target.id}`, { //lets me use login OR signup with respective id in form field
-        email: userState.email,
-        password: userState.password,
-      });
-      setUserState({})
-      localStorage.token = response.data.token
-      localStorage.id = response.data.id
-      const userResponse = await axios.get(`http://localhost:3001/api/users/${localStorage.id}`)
-      const {id, email, stocks, draws } = userResponse.data
+      const response = await axios.post(
+        `http://localhost:3001/api/users/${event.target.id}`,
+        {
+          //lets me use login OR signup with respective id in form field
+          email: userState.email,
+          password: userState.password,
+        }
+      );
+      setUserState({});
+      localStorage.token = response.data.token;
+      localStorage.id = response.data.id;
+      const userResponse = await axios.get(
+        `http://localhost:3001/api/users/${localStorage.id}`
+      );
+      const { id, email, stocks, draws } = userResponse.data;
       setUser({
         id: id,
         email: email,
         stocks: stocks,
-        draws: draws
-      })
-      history.push('/dashboard')
+        draws: draws,
+      });
+      history.push("/dashboard");
     } catch (error) {
       console.log(error);
     }
   };
 
-  const handleUserLogout = event => {
-    event.preventDefault()
-    setUser({})
-    localStorage.clear()
-    history.push('/')
-  }
+  const handleUserLogout = (event) => {
+    event.preventDefault();
+    setUser({});
+    localStorage.clear();
+    history.push("/");
+  };
 
   return (
     <div className="App">
@@ -74,28 +112,57 @@ function App() {
           exact
           path="/"
           render={(props) => {
-            return <Landing tarotPool={tarotPool} handleUniversalDraw={handleUniversalDraw} drawResult={drawResult}/>;
+            return (
+              <Landing
+                tarotPool={tarotPool}
+                initialLandingState={initialLandingState}
+                cards={cards}
+                setCards={setCards}
+                handleUniversalDraw={handleUniversalDraw}
+                drawResult={drawResult}
+              />
+            );
           }}
         />
         <Route
           exact
           path="/signup"
           render={(props) => {
-            return <Signup tarotPool={tarotPool} handleUserInput={handleUserInput} handleUserLogin={handleUserLogin}/>;
+            return (
+              <Signup
+                tarotPool={tarotPool}
+                handleUserInput={handleUserInput}
+                handleUserLogin={handleUserLogin}
+              />
+            );
           }}
         />
         <Route
           exact
           path="/login"
           render={(props) => {
-            return <Login tarotPool={tarotPool} handleUserInput={handleUserInput} handleUserLogin={handleUserLogin}/>;
+            return (
+              <Login
+                tarotPool={tarotPool}
+                handleUserInput={handleUserInput}
+                handleUserLogin={handleUserLogin}
+              />
+            );
           }}
         />
         <Route
           exact
           path="/dashboard"
           render={(props) => {
-            return <Dashboard tarotPool={tarotPool} user={user} setUser={setUser}token={localStorage.token}  handleUserLogout={handleUserLogout}/>;
+            return (
+              <Dashboard
+                tarotPool={tarotPool}
+                user={user}
+                setUser={setUser}
+                token={localStorage.token}
+                handleUserLogout={handleUserLogout}
+              />
+            );
           }}
         />
         <Route
