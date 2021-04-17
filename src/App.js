@@ -19,12 +19,18 @@ function App() {
     // password: "",
   });
 
-
-
-  
   const [userState, setUserState] = useState({});
 
-  
+  const [drawResult, setDrawResult] = useState({})
+
+  const handleUniversalDraw = async event => {
+    event.preventDefault()
+    const response = await axios.post(`http://localhost:3001/api/draws`, {userId: 0})
+    const { data } = response
+    setDrawResult(data)
+    await console.log(data)
+
+  }
 
   const handleUserInput = event => {
     setUserState({...userState, [event.target.name]: event.target.value})
@@ -68,7 +74,7 @@ function App() {
           exact
           path="/"
           render={(props) => {
-            return <Landing tarotPool={tarotPool} />;
+            return <Landing tarotPool={tarotPool} handleUniversalDraw={handleUniversalDraw} drawResult={drawResult}/>;
           }}
         />
         <Route

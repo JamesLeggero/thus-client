@@ -20,6 +20,16 @@ img {
     margin: 25px;
    
   }
+  #submit {
+    // display: inline;
+    width: $card-width;
+    height: $card-height;
+    filter: invert(1);
+    margin: 25px
+    // padding: 0px 20px 35px 40px;
+    // margin: 60px 0 65px 20px
+    
+  }
 }
 
 .signup-container, .login-container {
