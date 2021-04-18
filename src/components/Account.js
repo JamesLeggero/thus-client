@@ -54,7 +54,20 @@ export default function Account(props) {
   const showStocks = user.stocks.map((stock, i) => {
       return (
       <div key={user.stocks[i].symbol}>
+          <form onSubmit={
+              event=>{
+                event.preventDefault()
+                console.log('deleting ' + user.stocks[i].symbol)
+          }}>
           <h2>{user.stocks[i].symbol}</h2>
+          <input 
+            type='image'
+            name='submit'
+            src={tarotPool[13]}
+            alt='Delete Stock'
+          />
+
+          </form>
           </div>
       )
         
