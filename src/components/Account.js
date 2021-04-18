@@ -41,7 +41,7 @@ export default function Account(props) {
               id="stock-add-image"
               name="submit"
               src={tarotPool[cards[0].rank]}
-              alt="First Card"
+              alt="Add Stock"
               style={cards[0].reversed ? reversed : {}}
             />
           </label>
@@ -59,7 +59,7 @@ export default function Account(props) {
         <Link to={"/dashboard"}>
           <img
             src={tarotPool[cards[1].rank]}
-            alt="Second Card"
+            alt="Dashboard"
             style={cards[2].reversed ? reversed : {}}
           />
         </Link>
@@ -78,7 +78,7 @@ export default function Account(props) {
             id="delete-account-input"
             name="submit"
             src={tarotPool[cards[2].rank]}
-            alt="Third Card"
+            alt="Delete Account"
             style={cards[2].reversed ? reversed : {}}
           />
         </label>

@@ -38,7 +38,7 @@ export default function Dashboard(props) {
                         id='submit' 
                         name='submit' 
                         src={tarotPool[cards[0].rank]}
-                        alt="First Card" 
+                        alt="User Draw" 
                         style={cards[0].reversed? reversed : {}} 
                         />
                     </label>
@@ -50,7 +50,7 @@ export default function Dashboard(props) {
 
                     <img 
                         src={tarotPool[cards[1].rank]} 
-                        alt='Second Card'
+                        alt='Account'
                         style={cards[0].reversed? reversed : {}} 
                      />
                 </Link>
@@ -63,7 +63,7 @@ export default function Dashboard(props) {
                             id='logout-input' 
                             name='submit' 
                             src={tarotPool[cards[2].rank]} 
-                            alt="Third Card"
+                            alt="User Logout"
                             style={cards[0].reversed? reversed : {}}
                         />
                     </label>
