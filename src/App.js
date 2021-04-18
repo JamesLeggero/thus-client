@@ -18,6 +18,10 @@ function App() {
     // password: "",
   });
 
+  const [stock, setStock] = useState({})
+  const [stocks, setStocks] = useState([])
+  const [stockState, setStockState] = useState([])
+
   const [userState, setUserState] = useState({});
 
   const [cards, setCards] = useState([]);
@@ -122,6 +126,10 @@ function App() {
     setUserState({ ...userState, [event.target.name]: event.target.value });
   };
 
+  const handleStockInput = (event) => {
+    setStockState({ ...stockState, [event.target.name]: event.target.value });
+  };
+
   const handleUserLogin = async (event) => {
     event.preventDefault();
     try {
@@ -158,6 +166,23 @@ function App() {
     localStorage.clear();
     history.push("/");
   };
+
+  const handleUserStockAdd = async event => {
+    event.preventDefault()
+    try {
+      
+      // console.log(stockState.symbol)
+      const response = await axios.post("http://localhost:3001/api/userstocks", {
+        userId: localStorage.id,
+        symbol: stockState.symbol
+      })
+      const { data } = response
+      await console.log(data)
+    } catch (error) {
+      console.log({error: error.message})
+      
+    }
+  }
 
   return (
     <div className="App">
@@ -247,7 +272,10 @@ function App() {
               setCards={setCards}
               reversed={reversed}
               initialAccountState={initialAccountState}
-              handleUserInput={handleUserInput}
+              stockState={stockState}
+              setStockState={setStockState}
+              handleStockInput={handleStockInput}
+              handleUserStockAdd={handleUserStockAdd}
             />
             )
           }}

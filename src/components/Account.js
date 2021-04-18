@@ -11,7 +11,10 @@ export default function Account(props) {
     setCards,
     reversed,
     initialAccountState,
-    handleUserInput,
+    stockState,
+    setStockState,
+    handleStockInput,
+    handleUserStockAdd
   } = props;
 
   useEffect(() => {
@@ -30,10 +33,7 @@ export default function Account(props) {
       <div className="stock-add-container">
         <form
           id="stock-add-form"
-          onSubmit={(event) => {
-            event.preventDefault();
-            console.log("stock add initiated");
-          }}
+          onSubmit={handleUserStockAdd}
         >
           <label htmlFor="submit">
             <input
@@ -48,8 +48,8 @@ export default function Account(props) {
           <label htmlFor="stock-add-text">
             <input
               type="text"
-              name="stock-add-text"
-              onChange={handleUserInput}
+              name="symbol"
+              onChange={handleStockInput}
             />
           </label>
         </form>
@@ -60,7 +60,7 @@ export default function Account(props) {
           <img
             src={tarotPool[cards[1].rank]}
             alt="Dashboard"
-            style={cards[2].reversed ? reversed : {}}
+            style={cards[1].reversed ? reversed : {}}
           />
         </Link>
       </div>

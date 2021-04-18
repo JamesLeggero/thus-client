@@ -1,5 +1,4 @@
 import { React, useEffect } from "react";
-import axios from "axios";
 
 export default function Login(props) {
   const {
@@ -27,13 +26,21 @@ export default function Login(props) {
     <div className="login-container">
       <form id="login" onSubmit={handleUserLogin}>
         <div className="email-container">
-          <img src={tarotPool[cards[0].rank]} alt="Email" />
+          <img
+            src={tarotPool[cards[0].rank]}
+            alt="Email"
+            style={cards[0].reversed ? reversed : {}}
+          />
           <label htmlFor="email">
-            <input type="text" name="email" onChange={props.handleUserInput} />
+            <input type="text" name="email" onChange={handleUserInput} />
           </label>
         </div>
         <div className="password-container">
-          <img src={tarotPool[cards[1].rank]} alt="Password" />
+          <img
+            src={tarotPool[cards[1].rank]}
+            alt="Password"
+            style={cards[1].reversed ? reversed : {}}
+          />
           <label htmlFor="password">
             <input type="password" name="password" onChange={handleUserInput} />
           </label>
@@ -45,6 +52,7 @@ export default function Login(props) {
             name="submit"
             src={tarotPool[cards[2].rank]}
             alt="Submit"
+            style={cards[2].reversed ? reversed : {}}
           />
         </label>
       </form>
