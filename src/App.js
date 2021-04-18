@@ -19,7 +19,7 @@ function App() {
   });
 
   const [stock, setStock] = useState({})
-  const [stocks, setStocks] = useState([])
+  const [stockList, setStockList] = useState([])
   const [stockState, setStockState] = useState([])
 
   const [userState, setUserState] = useState({});
@@ -163,7 +163,7 @@ function App() {
   const handleUserLogout = (event) => {
     event.preventDefault();
     setUser({});
-    localStorage.clear();
+    // localStorage.clear();
     history.push("/");
   };
 
@@ -176,8 +176,10 @@ function App() {
         userId: localStorage.id,
         symbol: stockState.symbol
       })
+      event.target.reset()
       const { data } = response
       await console.log(data)
+      await console.log(stockState)
     } catch (error) {
       console.log({error: error.message})
       
@@ -276,6 +278,8 @@ function App() {
               setStockState={setStockState}
               handleStockInput={handleStockInput}
               handleUserStockAdd={handleUserStockAdd}
+              stockList={stockList}
+              setStockList={setStockList}
             />
             )
           }}

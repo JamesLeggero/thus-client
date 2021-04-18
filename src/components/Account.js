@@ -1,5 +1,6 @@
 import { React, useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios'
 
 export default function Account(props) {
   const {
@@ -14,7 +15,9 @@ export default function Account(props) {
     stockState,
     setStockState,
     handleStockInput,
-    handleUserStockAdd
+    handleUserStockAdd,
+    stockList,
+    setStockList
   } = props;
 
   useEffect(() => {
@@ -28,7 +31,22 @@ export default function Account(props) {
     getInitialCards();
   }, []);
 
+  useEffect(() => {
+    async function getStocks() {
+      try {
+        console.log(user);
+      } catch (error) {
+        console.log({ error: error.message });
+      }
+    }
+    getStocks();
+  }, []);
+
   return (
+      <>
+        <div className='stock-list'>
+            <h2>Hi</h2>
+        </div>
     <div className="account-container">
       <div className="stock-add-container">
         <form
@@ -45,9 +63,10 @@ export default function Account(props) {
               style={cards[0].reversed ? reversed : {}}
             />
           </label>
-          <label htmlFor="stock-add-text">
+          <label htmlFor="symbol">
             <input
               type="text"
+              id='symbol'
               name="symbol"
               onChange={handleStockInput}
             />
@@ -84,5 +103,6 @@ export default function Account(props) {
         </label>
       </form>
     </div>
+    </>
   );
 }

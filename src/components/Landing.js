@@ -27,6 +27,7 @@ export default function Landing(props) {
 
   useEffect(() => {
     async function getInitialCards() {
+        localStorage.clear()
       try {
         setCards(initialLandingState);
       } catch (error) {

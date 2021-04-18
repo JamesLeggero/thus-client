@@ -147,11 +147,21 @@ img {
   }
 }
 
+.stock-list {
+  // border: 2px solid gold;
+  width: 300px;
+  color: pink;
+  float: left;
+  margin-top: $card-container - 50px;
+  
+}
+
 .account-container {
   // border: 2px solid brown;
   width: 700px;
   padding-top: $card-container;
   margin: 0 auto;
+  margin-left: -300px;
   display: inline-block;
 
   .stock-add-container {
@@ -184,6 +194,9 @@ img {
       // border: 2px solid green;
       // margin: 15px;
       display: block
+    }
+    #symbol {
+      text-align: center;
     }
   }
 
