@@ -71,6 +71,21 @@ function App() {
     },
   ]
 
+  const initialAccountState = [
+    {
+      rank: 5,
+      reversed: false,
+    },
+    {
+      rank: 10,
+      reversed: false,
+    },
+    {
+      rank: 16,
+      reversed: false,
+    },
+  ]
+
   const [drawResult, setDrawResult] = useState({});
 
 
@@ -214,7 +229,18 @@ function App() {
           exact
           path="/account"
           render={(props) => {
-            return <Account tarotPool={tarotPool} />;
+            return (
+            <Account 
+              tarotPool={tarotPool} 
+              user={user}
+              setUser={setUser}
+              token={localStorage.token}
+              cards={cards}
+              setCards={setCards}
+              reversed={reversed}
+              initialAccountState={initialAccountState}
+            />
+            )
           }}
         />
       </Switch>

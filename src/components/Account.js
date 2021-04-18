@@ -1,9 +1,26 @@
-import React from 'react'
+import { React, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Account(props) {
 
-    const { hierophant, tower, wheel } = props.tarotPool
+    const { tarotPool, user, setUser, token, cards, setCards, reversed, initialAccountState } = props
+
+    useEffect(()=>{
+        async function getInitialCards() {
+            try {
+                
+                setCards(initialAccountState)
+            } catch (error) {
+                console.log({error: error.message})
+                
+            }
+        }
+        getInitialCards()
+    }, [])
+
+
+
+    
     return (
         <div className='account-container'>
            
@@ -13,14 +30,25 @@ export default function Account(props) {
                     console.log('stock add initiated')
                 }}>
                     <label htmlFor='submit'>
-                        <input type='image' id='stock-add-input' name='submit' src={hierophant} alt="The Heirophant" />
+                        <input 
+                            type='image' 
+                            id='stock-add-input' 
+                            name='submit' 
+                            src={tarotPool[cards[0].rank]} 
+                            alt="First Card" 
+                            style={cards[0].reversed? reversed : {}} 
+                        />
                     </label>
                 </form>
 
                 <div className='back-to-dashboard-container' >
                 <Link to={'/dashboard'} >
 
-                    <img src={wheel} alt='The Wheel of Fortune' />
+                    <img 
+                        src={tarotPool[cards[1].rank]} 
+                        alt='Second Card' 
+                        style={cards[0].reversed? reversed : {}} 
+                    />
                 </Link>
 
             </div>
@@ -30,7 +58,14 @@ export default function Account(props) {
                     console.log('account deleted')
                 }}>
                     <label htmlFor='submit'>
-                        <input type='image' id='delete-account-input' name='submit' src={tower} alt="The Tower" />
+                        <input 
+                            type='image' 
+                            id='delete-account-input' 
+                            name='submit' 
+                            src={tarotPool[cards[2].rank]} 
+                            alt="Third Card" 
+                            style={cards[0].reversed? reversed : {}} 
+                        />
                     </label>
                 </form>
             
