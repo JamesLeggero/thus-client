@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function Account(props) {
 
-    const { tarotPool, user, setUser, token, cards, setCards, reversed, initialAccountState } = props
+    const { tarotPool, user, setUser, token, cards, setCards, reversed, initialAccountState, handleUserInput } = props
 
     useEffect(()=>{
         async function getInitialCards() {
@@ -32,13 +32,16 @@ export default function Account(props) {
                     <label htmlFor='submit'>
                         <input 
                             type='image' 
-                            id='stock-add-input' 
+                            id='stock-add-image' 
                             name='submit' 
                             src={tarotPool[cards[0].rank]} 
                             alt="First Card" 
                             style={cards[0].reversed? reversed : {}} 
                         />
                     </label>
+                    {/* <label htmlFor='stock-add-input'>
+                        <input type='text' name='stock-add-input' onChange={handleUserInput}/>
+                    </label> */}
                 </form>
 
                 <div className='back-to-dashboard-container' >
@@ -47,11 +50,11 @@ export default function Account(props) {
                     <img 
                         src={tarotPool[cards[1].rank]} 
                         alt='Second Card' 
-                        style={cards[0].reversed? reversed : {}} 
+                        style={cards[2].reversed? reversed : {}} 
                     />
                 </Link>
 
-            </div>
+                </div>
 
                 <form id='delete-account' onSubmit={event=>{
                     event.preventDefault()
@@ -64,7 +67,7 @@ export default function Account(props) {
                             name='submit' 
                             src={tarotPool[cards[2].rank]} 
                             alt="Third Card" 
-                            style={cards[0].reversed? reversed : {}} 
+                            style={cards[2].reversed? reversed : {}} 
                         />
                     </label>
                 </form>

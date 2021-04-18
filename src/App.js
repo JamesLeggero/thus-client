@@ -239,6 +239,7 @@ function App() {
               setCards={setCards}
               reversed={reversed}
               initialAccountState={initialAccountState}
+              handleUserInput={handleUserInput}
             />
             )
           }}

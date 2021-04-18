@@ -39,9 +39,7 @@ export default function Dashboard(props) {
                         name='submit' 
                         src={tarotPool[cards[0].rank]}
                         alt="First Card" 
-                        style={
-                            cards[0].reversed? reversed : {}
-                        } 
+                        style={cards[0].reversed? reversed : {}} 
                         />
                     </label>
                 </form>

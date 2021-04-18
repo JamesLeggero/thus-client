@@ -20,7 +20,7 @@ img {
 .landing-container {
   width: 700px;
   margin: 0 auto;
-  border: 2px solid red;
+  // border: 2px solid red;
   padding-top: $card-container;
   img {
     width: $card-width;
@@ -41,7 +41,7 @@ img {
 }
 
 .draw-result {
-  border: 2px solid gold;
+  // border: 2px solid gold;
   font-family: 'Austie';
   width: 400px;
   // height: 100px;
@@ -153,26 +153,42 @@ img {
 
 .account-container {
   padding-top: $card-container; 
-  #stock-add, #delete-account {
-    display: inline;
-    #stock-add-input, #delete-account-input {
+  #stock-add  {
+    display:inline;
+    #stock-add-image {
 
+      // border: 2px solid gold;
       width: $card-width;
-      height: $card-height;
-      margin: 25px
+        height: $card-height;
+        margin: 25px;
+      // display: inline-block;
     }
     filter: invert(1);
   }
   .back-to-dashboard-container {
+    display: inline;
     // padding: 200px 0;
     img {
-      display: block;
+      // border: 2px solid green;
       height: $card-height;
       width: $card-width;
-      margin: 25px
+      margin: 25px;
+      // display: inline-block;
     }
-    display: inline-block;
-    vertical-align: top;
+    // vertical-align: top;
+  }
+  #delete-account {
+    display: inline;
+    input{
+      margin: 25px;
+
+      // border: 2px solid red;
+      // display: inline-block;
+      height: $card-height;
+      width: $card-width;
+      vertical-align: top;
+      filter: invert(1)
+    }
   }
 }
   
