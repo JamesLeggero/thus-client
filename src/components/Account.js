@@ -34,18 +34,39 @@ export default function Account(props) {
   useEffect(() => {
     async function getStocks() {
       try {
+          const compare = (a, b) => {
+             if (a.symbol < b.symbol) return -1
+             if (a.symbol > b.symbol) return 1
+             return 0 
+          }
+
+          user.stocks.sort(compare)
         console.log(user);
       } catch (error) {
         console.log({ error: error.message });
       }
     }
     getStocks();
-  }, []);
+  }, [user.stocks.length]);
+
+ 
+
+  const showStocks = user.stocks.map((stock, i) => {
+      return (
+      <div key={user.stocks[i].symbol}>
+          <h2>{user.stocks[i].symbol}</h2>
+          </div>
+      )
+        
+  })
+
+
 
   return (
       <>
         <div className='stock-list'>
-            <h2>Hi</h2>
+            {/* <h2>Hi</h2> */}
+            {showStocks}
         </div>
     <div className="account-container">
       <div className="stock-add-container">
