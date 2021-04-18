@@ -55,7 +55,7 @@ export default function Landing(props) {
                         id='submit' 
                         name='submit' 
                         src={tarotPool[cards[0].rank]}
-                        alt="First Card" 
+                        alt="Universal Draw" 
                         style={
                             cards[0].reversed? reversed : {}
                         } 
@@ -64,7 +64,7 @@ export default function Landing(props) {
             <Link to={'/signup'}>
                 <img 
                     src={tarotPool[cards[1].rank]} 
-                    alt='Second Card'
+                    alt='New User'
                     style={
                         cards[1].reversed? reversed : {}
                     } 
@@ -73,7 +73,7 @@ export default function Landing(props) {
             <Link to={'/login'} >
                 <img 
                 src={tarotPool[cards[2].rank]} 
-                alt='Third Card'
+                alt='Returning Users'
                 style={
                     cards[2].reversed? reversed : {}
                 } 
