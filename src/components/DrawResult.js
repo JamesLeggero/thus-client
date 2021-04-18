@@ -7,18 +7,16 @@ export default function DrawResult(props) {
         transform: props.drawResult.aroonOsc < 0 ? 'rotate(-180deg)' : ''  
     }
 
-    useEffect(()=>{
-        const timer = setTimeout(()=>props.setDrawResult({}), 5000 )
-        return ()=>{
-            clearTimeout(timer)
-        }
-      })
+    // useEffect(()=>{
+    //     const timer = setTimeout(()=>props.setDrawResult({}), 5000 )
+    //     return ()=>{
+    //         clearTimeout(timer)
+    //     }
+    //   })
 
     return (
-        <div>
-            {props.drawResult.symbol && <h2 style={style}>{props.drawResult.symbol}</h2>}
-            {/* <h2 style={style}>{props.drawResult.pickedStock.symbol}</h2> */}
-            
+        <div >
+            {props.drawResult.symbol && <h2 className='draw-result' style={style}>{props.drawResult.symbol}</h2>}
         </div>
     )
 }
