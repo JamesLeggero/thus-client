@@ -1,17 +1,22 @@
-import React from 'react'
+import { React, useEffect } from 'react'
 
 export default function DrawResult(props) {
 
-    // const style = {
-    //     color: 'pink',
-    //     transform: props.drawResult.pickedStock.aroonOsc < 0 ? 'rotate(-180deg)' : ''  
-    // }
+    const style = {
+        color: 'pink',
+        transform: props.drawResult.aroonOsc < 0 ? 'rotate(-180deg)' : ''  
+    }
 
-    const style = {}
+    useEffect(()=>{
+        const timer = setTimeout(()=>props.setDrawResult({}), 5000 )
+        return ()=>{
+            clearTimeout(timer)
+        }
+      })
 
     return (
         <div>
-            {Object.keys(props.drawResult.pickedStock) > 0 && <h2 style={style}>{props.drawResult.pickedStock.symbol}</h2>}
+            {props.drawResult.symbol && <h2 style={style}>{props.drawResult.symbol}</h2>}
             {/* <h2 style={style}>{props.drawResult.pickedStock.symbol}</h2> */}
             
         </div>

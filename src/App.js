@@ -39,14 +39,17 @@ function App() {
 
   const [drawResult, setDrawResult] = useState({});
 
+
   const handleUniversalDraw = async (event) => {
     event.preventDefault();
+    // const timer = setTimeout(()=>setCards(initialLandingState), 5000)
+    
     const response = await axios.post(`http://localhost:3001/api/draws`, {
       userId: 0,
     });
     const { data } = response;
     const { tarotRadix } = data;
-    setDrawResult(data);
+    await setDrawResult(data.pickedStock);
     setCards([
       {
         rank: tarotRadix[0][0],
@@ -61,8 +64,9 @@ function App() {
         reversed: tarotRadix[2][1],
       },
     ]);
-    setTimeout(()=>setCards(initialLandingState), 5000)
-    await console.log(data.tarotRadix);
+    // timer = (()=>setCards(initialLandingState), 5000)
+    // setTimeout(()=>setCards(initialLandingState), 5000)
+    await console.log(drawResult);
   };
 
   const handleUserInput = (event) => {
@@ -121,6 +125,7 @@ function App() {
                 setCards={setCards}
                 handleUniversalDraw={handleUniversalDraw}
                 drawResult={drawResult}
+                setDrawResult={setDrawResult}
               />
             );
           }}
