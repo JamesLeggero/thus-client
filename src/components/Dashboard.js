@@ -7,33 +7,25 @@ import EmailHeading from './EmailHeading'
 
 export default function Dashboard(props) {
 
-    const { user } = props
+    const { user, cards, setCards, reversed, initialDashboardState, tarotPool } = props
 
-    console.log(user)
-
-    // useEffect(() => {
-    //     async function fetchData() {
-    //         if (props.user.id !== '') {
-    //             // const response = await axios.get(`http://localhost:3001/api/users/${localStorage.id}`)
-    //             // const data = await response.data
-    //             // props.setUser(data)
-    //             // setUser({
-    //             //     id: data.id,
-    //             //     email: data.email,
-    //             //     draws: data.draws,
-    //             //     stocks: data.stocks})
-    //             await console.log(props.user)
-    //             console.log('token: ' + localStorage.token)
-    //         }
-    //     }
-    //     fetchData()
-    // }, [])
+    useEffect(()=>{
+        async function getInitialCards() {
+            try {
+                
+                setCards(initialDashboardState)
+            } catch (error) {
+                console.log({error: error.message})
+                
+            }
+        }
+        getInitialCards()
+    }, [])
     
-    const { wheel, hierophant, death } = props.tarotPool
 
     return (
         <div className='dashboard-container'>
-            {props.user.id > 0 && <EmailHeading email={user.email} />}
+            {/* {props.user.id > 0 && <EmailHeading email={user.email} />} */}
            
 
                 <form id='user-draw' onSubmit={event=>{
@@ -41,7 +33,16 @@ export default function Dashboard(props) {
                     console.log('draw initiated')
                 }}>
                     <label htmlFor='submit'>
-                        <input type='image' id='user-draw-input' name='submit' src={wheel} alt="The Wheel of Fortune" />
+                        <input 
+                        type='image' 
+                        id='submit' 
+                        name='submit' 
+                        src={tarotPool[cards[0].rank]}
+                        alt="First Card" 
+                        style={
+                            cards[0].reversed? reversed : {}
+                        } 
+                        />
                     </label>
                 </form>
                 
@@ -49,13 +50,24 @@ export default function Dashboard(props) {
             <div className='to-account-container' >
                 <Link to={'/account'} >
 
-                    <img src={hierophant} alt='The Hierophant' />
+                    <img 
+                        src={tarotPool[cards[1].rank]} 
+                        alt='Second Card'
+                        style={cards[0].reversed? reversed : {}} 
+                     />
                 </Link>
 
             </div>
             <form id='logout' onSubmit={props.handleUserLogout}>
                     <label htmlFor='logout'>
-                        <input type='image' id='logout-input' name='submit' src={death} alt="Death" />
+                        <input 
+                            type='image' 
+                            id='logout-input' 
+                            name='submit' 
+                            src={tarotPool[cards[2].rank]} 
+                            alt="Third Card"
+                            style={cards[0].reversed? reversed : {}}
+                        />
                     </label>
                 </form>
             {/* <div className='logout-container' >

@@ -4,7 +4,7 @@ import DrawResult from './DrawResult'
 
 export default function Landing(props) {
 
-    const { tarotPool, initialLandingState, cards, setCards, drawResult, setDrawResult } = props
+    const { tarotPool, initialLandingState, cards, setCards, drawResult, setDrawResult, reversed } = props
 
     useEffect(()=>{
         const timer = setTimeout(()=>setCards(initialLandingState), 5000 )
@@ -19,9 +19,7 @@ export default function Landing(props) {
 
     
 
-    const reversed = {
-        transform: 'rotate(180deg)'
-    }
+    
 
         
     

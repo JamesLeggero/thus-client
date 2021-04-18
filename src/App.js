@@ -22,6 +22,10 @@ function App() {
 
   const [cards, setCards] = useState([]);
 
+  const reversed = {
+    transform: 'rotate(180deg)'
+}
+
   const initialLandingState = [
     {
       rank: 10,
@@ -36,6 +40,36 @@ function App() {
       reversed: false,
     },
   ];
+
+  // const initialLoginState = [
+  //   {
+  //     rank: 10,
+  //     reversed: false,
+  //   },
+  //   {
+  //     rank: 0,
+  //     reversed: false,
+  //   },
+  //   {
+  //     rank: 9,
+  //     reversed: false,
+  //   },
+  // ]
+
+  const initialDashboardState = [
+    {
+      rank: 10,
+      reversed: false,
+    },
+    {
+      rank: 5,
+      reversed: false,
+    },
+    {
+      rank: 13,
+      reversed: false,
+    },
+  ]
 
   const [drawResult, setDrawResult] = useState({});
 
@@ -123,6 +157,7 @@ function App() {
                 initialLandingState={initialLandingState}
                 cards={cards}
                 setCards={setCards}
+                reversed={reversed}
                 handleUniversalDraw={handleUniversalDraw}
                 drawResult={drawResult}
                 setDrawResult={setDrawResult}
@@ -166,6 +201,10 @@ function App() {
                 user={user}
                 setUser={setUser}
                 token={localStorage.token}
+                cards={cards}
+                setCards={setCards}
+                reversed={reversed}
+                initialDashboardState={initialDashboardState}
                 handleUserLogout={handleUserLogout}
               />
             );

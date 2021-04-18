@@ -118,6 +118,11 @@ img {
     display: inline-block;
     vertical-align: top;
   }
+  #submit {
+    height: $card-height;
+    width: $card-width;
+    margin: 25px
+  }
   img {
     display: block;
     height: $card-height;
