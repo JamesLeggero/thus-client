@@ -3,7 +3,7 @@ $card-width: 175px;
 $card-container: 175px;
 
 @font-face {
-  font-family: 'Austie';
+  font-family: "Austie";
   src: url(img/fonts/Austie_Bost_Roman_Holiday_Sketch.ttf);
 }
 .App {
@@ -14,7 +14,7 @@ $card-container: 175px;
 }
 
 img {
-  filter: invert(1)
+  filter: invert(1);
 }
 
 .landing-container {
@@ -26,30 +26,28 @@ img {
     width: $card-width;
     height: $card-height;
     margin: 25px;
-   
   }
   #submit {
     // display: inline;
     width: $card-width;
     height: $card-height;
     filter: invert(1);
-    margin: 25px
+    margin: 25px;
     // padding: 0px 20px 35px 40px;
     // margin: 60px 0 65px 20px
-    
   }
 }
 
 .draw-result {
   // border: 2px solid gold;
-  font-family: 'Austie';
+  font-family: "Austie";
   width: 400px;
   // height: 100px;
   // padding: -55px 0;
   margin: 0 auto;
   // padding: -30px 0;
   font-size: 100px;
-  
+
   // h2 {
   //   border: 2px solid blue;
   //   top: 50%;
@@ -60,11 +58,12 @@ img {
   // }
 }
 
-.signup-container, .login-container {
-  padding-top: $card-container; 
-  form {  
+.signup-container,
+.login-container {
+  padding-top: $card-container;
+  form {
     // margin: 0 auto;
-    // width: 800px;  
+    // width: 800px;
     // background-color: red;
   }
   #submit {
@@ -72,37 +71,36 @@ img {
     width: $card-width;
     height: $card-height;
     filter: invert(1);
-    margin: 25px
+    margin: 25px;
     // padding: 0px 20px 35px 40px;
     // margin: 60px 0 65px 20px
-    
   }
-  .email-container, .password-container {
+  .email-container,
+  .password-container {
     display: inline-block;
     // border: 2px solid gold;
     // margin: 25px 0;
     vertical-align: top;
     // margin-top: 0;
     // margin: 0 auto;
-    
+
     // width: 250px;
     // display: block;
     // background-color: blue;
-      img {
-        width: $card-width;
-        height: $card-height;
-        display: block;
-        // margin: 0 auto;
-        margin: 25px;
-      }
-      input {
-        // width: 97%;
-        margin: 15px auto 0 auto;
-        display: block;
-        text-align: center;
-      }
+    img {
+      width: $card-width;
+      height: $card-height;
+      display: block;
+      // margin: 0 auto;
+      margin: 25px;
     }
-  
+    input {
+      // width: 97%;
+      margin: 15px auto 0 auto;
+      display: block;
+      text-align: center;
+    }
+  }
 }
 
 #email-heading {
@@ -111,60 +109,86 @@ img {
 }
 
 .dashboard-container {
- 
-  padding-top: $card-container; 
+  padding-top: $card-container;
   background-color: black;
-  .to-account-container, .logout-container {
+  .to-account-container,
+  .logout-container {
     display: inline-block;
     vertical-align: top;
   }
   #submit {
     height: $card-height;
     width: $card-width;
-    margin: 25px
+    margin: 25px;
   }
   img {
     display: block;
     height: $card-height;
     width: $card-width;
-    margin: 25px
+    margin: 25px;
   }
   #user-draw {
     display: inline;
     #user-draw-input {
-
       width: $card-width;
       height: $card-height;
-      margin: 25px
+      margin: 25px;
     }
     filter: invert(1);
   }
   #logout {
     display: inline;
     #logout-input {
-
       width: $card-width;
       height: $card-height;
-      margin: 25px
+      margin: 25px;
     }
     filter: invert(1);
   }
 }
 
 .account-container {
-  padding-top: $card-container; 
-  #stock-add  {
-    display:inline;
-    #stock-add-image {
+  // border: 2px solid brown;
+  width: 700px;
+  padding-top: $card-container;
+  margin: 0 auto;
+  display: inline-block;
 
+  .stock-add-container {
+    // border: 2px solid pink;
+
+    width: $card-width;
+    display: inline-block;
+    // padding: 50px 25px 25px 25px;
+    margin: 25px;
+    
+    #stock-add-form {
+      // background-color: red;
+      // margin: 25px;
+      
+    }
+
+    // height: 400px;
+    // width: $card-width;
+    // display: inline-block;
+    #stock-add-image {
       // border: 2px solid gold;
       width: $card-width;
-        height: $card-height;
-        margin: 25px;
-      // display: inline-block;
+      height: $card-height;
+
+      margin: 0 auto 15px auto;
+      // display: inline;
+      filter: invert(1);
     }
-    filter: invert(1);
+    #stock-add-text {
+      // border: 2px solid green;
+      // margin: 15px;
+      display: block
+    }
   }
+
+  // display:inline;
+
   .back-to-dashboard-container {
     display: inline;
     // padding: 200px 0;
@@ -175,11 +199,11 @@ img {
       margin: 25px;
       // display: inline-block;
     }
-    // vertical-align: top;
+    vertical-align: top;
   }
   #delete-account {
     display: inline;
-    input{
+    input {
       margin: 25px;
 
       // border: 2px solid red;
@@ -187,9 +211,7 @@ img {
       height: $card-height;
       width: $card-width;
       vertical-align: top;
-      filter: invert(1)
+      filter: invert(1);
     }
   }
 }
-  
-
