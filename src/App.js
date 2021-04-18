@@ -41,20 +41,20 @@ function App() {
     },
   ];
 
-  // const initialLoginState = [
-  //   {
-  //     rank: 10,
-  //     reversed: false,
-  //   },
-  //   {
-  //     rank: 0,
-  //     reversed: false,
-  //   },
-  //   {
-  //     rank: 9,
-  //     reversed: false,
-  //   },
-  // ]
+  const initialLoginState = [
+    {
+      rank: 4,
+      reversed: false,
+    },
+    {
+      rank: 2,
+      reversed: false,
+    },
+    {
+      rank: 10,
+      reversed: false,
+    },
+  ]
 
   const initialDashboardState = [
     {
@@ -200,6 +200,10 @@ function App() {
             return (
               <Login
                 tarotPool={tarotPool}
+                cards={cards}
+                setCards={setCards}
+                reversed={reversed}
+                initialLoginState={initialLoginState}
                 handleUserInput={handleUserInput}
                 handleUserLogin={handleUserLogin}
               />
