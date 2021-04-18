@@ -128,7 +128,7 @@ function App() {
       const response = await axios.post(
         `http://localhost:3001/api/users/${event.target.id}`,
         {
-          //lets me use login OR signup with respective id in form field
+          //lets me use login OR signup with form field id - userID not needed, just email
           email: userState.email,
           password: userState.password,
         }
@@ -186,9 +186,13 @@ function App() {
           render={(props) => {
             return (
               <Signup
-                tarotPool={tarotPool}
-                handleUserInput={handleUserInput}
-                handleUserLogin={handleUserLogin}
+              tarotPool={tarotPool}
+              cards={cards}
+              setCards={setCards}
+              reversed={reversed}
+              initialLoginState={initialLoginState}
+              handleUserInput={handleUserInput}
+              handleUserLogin={handleUserLogin}
               />
             );
           }}

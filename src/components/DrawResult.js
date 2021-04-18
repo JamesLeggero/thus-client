@@ -7,12 +7,12 @@ export default function DrawResult(props) {
         transform: props.drawResult.aroonOsc < 0 ? 'rotate(-180deg)' : ''  
     }
 
-    // useEffect(()=>{
-    //     const timer = setTimeout(()=>props.setDrawResult({}), 5000 )
-    //     return ()=>{
-    //         clearTimeout(timer)
-    //     }
-    //   })
+    useEffect(()=>{
+        const timer = setTimeout(()=>props.setDrawResult({}), 5000 )
+        return ()=>{
+            clearTimeout(timer)
+        }
+      })
 
     return (
         <div >
