@@ -170,16 +170,19 @@ function App() {
   const handleUserStockAdd = async event => {
     event.preventDefault()
     try {
+      const userId = localStorage.id
       
       // console.log(stockState.symbol)
       const response = await axios.post("http://localhost:3001/api/userstocks", {
-        userId: localStorage.id,
+        userId: userId,
         symbol: stockState.symbol
       })
       event.target.reset()
-      const { data } = response
-      await console.log(data)
-      await console.log(stockState)
+      const updatedUser = await axios.get(`http://localhost:3001/api/users/${userId}`)
+      await setUser(updatedUser.data)
+      // const { data } = response
+      // await console.log(data)
+      // await console.log(stockState)
     } catch (error) {
       console.log({error: error.message})
       
@@ -198,7 +201,9 @@ function App() {
           id: userStock.data.id
         }
       })
-      console.log(deletedUserStock.data)
+      const updatedUser = await axios.get(`http://localhost:3001/api/users/${userId}`)
+      await setUser(updatedUser.data)
+      // console.log(deletedUserStock.data)
 
     } catch (error) {
       console.log({error: error.message})
