@@ -30,6 +30,7 @@ export default function Landing(props) {
         localStorage.clear()
       try {
         setCards(initialLandingState);
+        setDrawResult({})
       } catch (error) {
         console.log({ error: error.message });
       }

@@ -95,8 +95,6 @@ function App() {
 
   const handleUniversalDraw = async (event) => {
     event.preventDefault();
-    // const timer = setTimeout(()=>setCards(initialLandingState), 5000)
-    
     const response = await axios.post(`http://localhost:3001/api/draws`, {
       userId: 0,
     });
@@ -164,10 +162,30 @@ function App() {
     event.preventDefault()
     const userId = localStorage.id
     try {
-      const pickedStock = await axios.post('http://localhost:3001/api/draws', {
+      const response = await axios.post('http://localhost:3001/api/draws', {
         userId: userId
       })
-      await console.log(pickedStock.data)
+      const { data } = response;
+    const { tarotRadix } = data;
+    await setDrawResult(data.pickedStock);
+    setCards([
+      {
+        rank: tarotRadix[0][0],
+        reversed: tarotRadix[0][1],
+      },
+      {
+        rank: tarotRadix[1][0],
+        reversed: tarotRadix[1][1],
+      },
+      {
+        rank: tarotRadix[2][0],
+        reversed: tarotRadix[2][1],
+      },
+    ]);
+    // timer = (()=>setCards(initialLandingState), 5000)
+    // setTimeout(()=>setCards(initialLandingState), 5000)
+    await console.log(drawResult);
+      // await console.log(response.data)
     } catch (error) {
       console.log({error: error.message})
     }
@@ -293,6 +311,8 @@ function App() {
                 reversed={reversed}
                 initialDashboardState={initialDashboardState}
                 handleUserDraw={handleUserDraw}
+                drawResult={drawResult}
+                setDrawResult={setDrawResult}
                 handleUserLogout={handleUserLogout}
               />
             );

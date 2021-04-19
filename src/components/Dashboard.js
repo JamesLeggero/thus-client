@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import EmailHeading from "./EmailHeading";
+import DrawResult from './DrawResult'
 
 export default function Dashboard(props) {
   const {
@@ -12,12 +13,15 @@ export default function Dashboard(props) {
     handleUserDraw,
     handleUserLogout,
     tarotPool,
+    drawResult,
+    setDrawResult
   } = props;
 
   useEffect(() => {
     async function getInitialCards() {
       try {
         setCards(initialDashboardState);
+        setDrawResult({})
       } catch (error) {
         console.log({ error: error.message });
       }
@@ -25,7 +29,15 @@ export default function Dashboard(props) {
     getInitialCards();
   }, []);
 
+  useEffect(() => {
+    const timer = setTimeout(() => setCards(initialDashboardState), 5000);
+    return () => {
+      clearTimeout(timer);
+    };
+  });
+
   return (
+    <>
     <div className="dashboard-container">
       {/* {props.user.id > 0 && <EmailHeading email={user.email} />} */}
 
@@ -70,5 +82,7 @@ export default function Dashboard(props) {
                 <img src={death} alt='Death' />
             </div> */}
     </div>
+    <DrawResult drawResult={drawResult} setDrawResult={setDrawResult} />
+    </>
   );
 }
