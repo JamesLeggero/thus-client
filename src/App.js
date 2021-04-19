@@ -186,6 +186,25 @@ function App() {
     }
   }
 
+  const handleUserStockDelete = async event => {
+    event.preventDefault()
+    // console.log(localStorage.id)
+    try {
+      const userId = localStorage.id
+      const stockId = event.target.id
+      const userStock = await axios.get(`http://localhost:3001/api/userstocks/${userId}/${stockId}`)
+      const deletedUserStock = await axios.delete(`http://localhost:3001/api/userstocks/delete/`, {
+        params: {
+          id: userStock.data.id
+        }
+      })
+      console.log(deletedUserStock.data)
+
+    } catch (error) {
+      console.log({error: error.message})
+    }
+  }
+
   return (
     <div className="App">
       <Switch>
@@ -278,6 +297,7 @@ function App() {
               setStockState={setStockState}
               handleStockInput={handleStockInput}
               handleUserStockAdd={handleUserStockAdd}
+              handleUserStockDelete={handleUserStockDelete}
               stockList={stockList}
               setStockList={setStockList}
             />

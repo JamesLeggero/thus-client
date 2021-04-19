@@ -16,6 +16,7 @@ export default function Account(props) {
     setStockState,
     handleStockInput,
     handleUserStockAdd,
+    handleUserStockDelete,
     stockList,
     setStockList
   } = props;
@@ -53,12 +54,8 @@ export default function Account(props) {
 
   const showStocks = user.stocks.map((stock, i) => {
       return (
-      <div key={user.stocks[i].symbol}>
-          <form onSubmit={
-              event=>{
-                event.preventDefault()
-                console.log('deleting ' + user.stocks[i].symbol)
-          }}>
+      <div key={user.stocks[i].id}>
+          <form id={user.stocks[i].id} onSubmit={handleUserStockDelete}>
           <h2>{user.stocks[i].symbol}</h2>
           <input 
             type='image'
