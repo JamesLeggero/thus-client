@@ -160,6 +160,19 @@ function App() {
     }
   };
 
+  const handleUserDraw = async event => {
+    event.preventDefault()
+    const userId = localStorage.id
+    try {
+      const pickedStock = await axios.post('http://localhost:3001/api/draws', {
+        userId: userId
+      })
+      await console.log(pickedStock.data)
+    } catch (error) {
+      console.log({error: error.message})
+    }
+  }
+
   const handleUserLogout = (event) => {
     event.preventDefault();
     setUser({});
@@ -279,6 +292,7 @@ function App() {
                 setCards={setCards}
                 reversed={reversed}
                 initialDashboardState={initialDashboardState}
+                handleUserDraw={handleUserDraw}
                 handleUserLogout={handleUserLogout}
               />
             );

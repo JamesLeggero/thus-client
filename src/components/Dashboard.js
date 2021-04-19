@@ -9,6 +9,8 @@ export default function Dashboard(props) {
     setCards,
     reversed,
     initialDashboardState,
+    handleUserDraw,
+    handleUserLogout,
     tarotPool,
   } = props;
 
@@ -29,10 +31,7 @@ export default function Dashboard(props) {
 
       <form
         id="user-draw"
-        onSubmit={(event) => {
-          event.preventDefault();
-          console.log("draw initiated");
-        }}
+        onSubmit={handleUserDraw}
       >
         <label htmlFor="submit">
           <input
@@ -55,7 +54,7 @@ export default function Dashboard(props) {
           />
         </Link>
       </div>
-      <form id="logout" onSubmit={props.handleUserLogout}>
+      <form id="logout" onSubmit={handleUserLogout}>
         <label htmlFor="logout">
           <input
             type="image"
