@@ -101,25 +101,25 @@ function App() {
     console.log(response.data)
     const { data } = response;
     const { tarotRadix } = data;
-    // await setDrawResult(data.pickedStock);
+    await setDrawResult(data.pickedStock);
     // console.log(data.pickedStock)
-    // setCards([
-    //   {
-    //     rank: tarotRadix[0][0],
-    //     reversed: tarotRadix[0][1],
-    //   },
-    //   {
-    //     rank: tarotRadix[1][0],
-    //     reversed: tarotRadix[1][1],
-    //   },
-    //   {
-    //     rank: tarotRadix[2][0],
-    //     reversed: tarotRadix[2][1],
-    //   },
-    // ]);
-    // // timer = (()=>setCards(initialLandingState), 5000)
-    // // setTimeout(()=>setCards(initialLandingState), 5000)
-    // await console.log(drawResult);
+    setCards([
+      {
+        rank: tarotRadix[0][0],
+        reversed: tarotRadix[0][1],
+      },
+      {
+        rank: tarotRadix[1][0],
+        reversed: tarotRadix[1][1],
+      },
+      {
+        rank: tarotRadix[2][0],
+        reversed: tarotRadix[2][1],
+      },
+    ]);
+    // timer = (()=>setCards(initialLandingState), 5000)
+    // setTimeout(()=>setCards(initialLandingState), 5000)
+    await console.log(drawResult);
   };
 
   const handleUserInput = (event) => {
