@@ -5,6 +5,7 @@
     "node": "14.5.0",
     "yarn": "1.22.5"
   },
+  "proxy": "http://localhost:3000",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
