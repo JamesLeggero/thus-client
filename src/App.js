@@ -95,7 +95,7 @@ function App() {
 
   const handleUniversalDraw = async (event) => {
     event.preventDefault();
-    const response = await axios.post(`http://localhost:3001/api/draws`, {
+    const response = await axios.post(`https://jml-thus-api.herokuapp.com/api/draws`, {
       userId: 0,
     });
     console.log(response.data)
@@ -134,7 +134,7 @@ function App() {
     event.preventDefault();
     try {
       const response = await axios.post(
-        `http://localhost:3001/api/users/${event.target.id}`,
+        `https://jml-thus-api.herokuapp.com/api/users/${event.target.id}`,
         {
           //lets me use login OR signup with form field id - userID not needed, just email
           email: userState.email,
@@ -145,7 +145,7 @@ function App() {
       localStorage.token = response.data.token;
       localStorage.id = response.data.id;
       const userResponse = await axios.get(
-        `http://localhost:3001/api/users/${localStorage.id}`
+        `https://jml-thus-api.herokuapp.com/api/users/${localStorage.id}`
       );
       const { id, email, stocks, draws } = userResponse.data;
       setUser({
@@ -165,7 +165,7 @@ function App() {
   
     
     const userId = localStorage.id
-    const userResponse = await axios.get(`http://localhost:3001/api/users/${userId}`)
+    const userResponse = await axios.get(`https://jml-thus-api.herokuapp.com/api/users/${userId}`)
     const {data} = userResponse
     const {id, stocks, email, draws} = data
     setUser({
@@ -179,7 +179,7 @@ function App() {
         console.log('no stocks added')
         return
       }
-      const response = await axios.post('http://localhost:3001/api/draws', {
+      const response = await axios.post('https://jml-thus-api.herokuapp.com/api/draws', {
         userId: userId
       })
       const { data } = response;
@@ -221,12 +221,12 @@ function App() {
       const userId = localStorage.id
       
       // console.log(stockState.symbol)
-      const response = await axios.post("http://localhost:3001/api/userstocks", {
+      const response = await axios.post("https://jml-thus-api.herokuapp.com/api/userstocks", {
         userId: userId,
         symbol: stockState.symbol
       })
       event.target.reset()
-      const updatedUser = await axios.get(`http://localhost:3001/api/users/${userId}`)
+      const updatedUser = await axios.get(`https://jml-thus-api.herokuapp.com/api/users/${userId}`)
       await setUser(updatedUser.data)
       // const { data } = response
       // await console.log(data)
@@ -243,13 +243,13 @@ function App() {
     try {
       const userId = localStorage.id
       const stockId = event.target.id
-      const userStock = await axios.get(`http://localhost:3001/api/userstocks/${userId}/${stockId}`)
-      const deletedUserStock = await axios.delete(`http://localhost:3001/api/userstocks/delete/`, {
+      const userStock = await axios.get(`https://jml-thus-api.herokuapp.com/api/userstocks/${userId}/${stockId}`)
+      const deletedUserStock = await axios.delete(`https://jml-thus-api.herokuapp.com/api/userstocks/delete/`, {
         params: {
           id: userStock.data.id
         }
       })
-      const updatedUser = await axios.get(`http://localhost:3001/api/users/${userId}`)
+      const updatedUser = await axios.get(`https://jml-thus-api.herokuapp.com/api/users/${userId}`)
       await setUser(updatedUser.data)
       // console.log(deletedUserStock.data)
 
