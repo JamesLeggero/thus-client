@@ -17,6 +17,13 @@ img {
   filter: invert(1);
 }
 
+input[type='text'], input[type='password'] {
+  color: white;
+  background-color: rgb(26, 25, 25);
+  font-family: 'Austie';
+  font-size: 20px
+}
+
 .landing-container {
   width: 700px;
   margin: 0 auto;
@@ -149,7 +156,7 @@ img {
 
 .stock-list {
   width: 200px;
-  color: pink;
+  color: white;
   float: left;
   margin-top: $card-container - 50px;
   margin-left: 50px;

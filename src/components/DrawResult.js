@@ -3,7 +3,7 @@ import { React, useEffect } from 'react'
 export default function DrawResult(props) {
 
     const style = {
-        color: 'pink',
+        color: 'white',
         transform: props.drawResult.aroonOsc < 0 ? 'rotate(-180deg)' : ''  
     }
 

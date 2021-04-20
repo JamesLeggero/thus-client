@@ -162,8 +162,23 @@ function App() {
 
   const handleUserDraw = async event => {
     event.preventDefault()
+  
+    
     const userId = localStorage.id
+    const userResponse = await axios.get(`http://localhost:3001/api/users/${userId}`)
+    const {data} = userResponse
+    const {id, stocks, email, draws} = data
+    setUser({
+      id: id,
+      email: email,
+      stocks: stocks,
+      draws: draws
+    })
     try {
+      if (user.stocks.length === 0) {
+        console.log('no stocks added')
+        return
+      }
       const response = await axios.post('http://localhost:3001/api/draws', {
         userId: userId
       })
