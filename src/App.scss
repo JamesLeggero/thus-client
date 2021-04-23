@@ -6,11 +6,51 @@ $card-container: 175px;
   font-family: "Austie";
   src: url(img/fonts/Austie_Bost_Roman_Holiday_Sketch.ttf);
 }
+
+* {
+  cursor: default !important;
+}
 .App {
   text-align: center;
   background-color: black;
   height: 100vh;
   // overflow-y: hidden;
+}
+
+.tooltip {
+  display: inline-block;
+  
+  
+  
+  // visibility: hidden;
+}
+
+.tooltiptext {
+  
+  position: relative;
+  color: white;
+  visibility: hidden;
+  display: block;
+  margin: -50px auto 0 auto;
+  background-color: black;
+  // border: 2px solid white;
+  width: 170px;
+  height: 20px;
+  font-family: 'Austie';
+  font-weight: 900;
+  letter-spacing: 2.5px;
+
+  
+  line-height: 25px;
+  z-index: 1
+
+
+}
+
+.tooltip:hover .tooltiptext {
+  visibility:visible;
+  transition-delay: 1.5s;
+  
 }
 
 img {
@@ -25,6 +65,7 @@ input[type='text'], input[type='password'] {
 }
 
 .landing-container {
+  
   width: 700px;
   margin: 0 auto;
   // border: 2px solid red;
@@ -67,6 +108,7 @@ input[type='text'], input[type='password'] {
 
 .signup-container,
 .login-container {
+  z-index: 0;
   padding-top: $card-container;
   form {
     // margin: 0 auto;
