@@ -12,8 +12,8 @@ import tarotPool from "./img/tarotPool";
 function App() {
   const history = useHistory();
 
-  const backendConnection = 'http://localhost:3001'
-  // const backendConnection = 'https://jml-thus-api.herokuapp.com'
+  // const backendConnection = 'http://localhost:3001'
+  const backendConnection = 'https://jml-thus-api.herokuapp.com'
 
   const [user, setUser] = useState({
     // id: "",
