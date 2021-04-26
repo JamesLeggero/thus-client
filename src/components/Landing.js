@@ -47,6 +47,7 @@ export default function Landing(props) {
     <div>
       {cards.length > 0 && (
         <div className="landing-container">
+          <div className='tooltip'>
           <form id="0" onSubmit={handleUniversalDraw}>
             <label htmlFor="submit">
               <input
@@ -57,7 +58,13 @@ export default function Landing(props) {
                 alt="Universal Draw"
                 style={cards[0].reversed ? reversed : {}}
               />
+            
             </label>
+            <span className='tooltiptext'>UNIVERSAL DRAW</span>
+            </form>
+            </div>
+            <div className='tooltip'>
+           
             <Link to={"/signup"}>
               <img
                 src={tarotPool[cards[1].rank]}
@@ -65,6 +72,9 @@ export default function Landing(props) {
                 style={cards[1].reversed ? reversed : {}}
               />
             </Link>
+              <span className='tooltiptext'>NEW USERS</span>
+            </div>
+            <div className='tooltip'>
             <Link to={"/login"}>
               <img
                 src={tarotPool[cards[2].rank]}
@@ -72,7 +82,10 @@ export default function Landing(props) {
                 style={cards[2].reversed ? reversed : {}}
               />
             </Link>
-          </form>
+              <span className='tooltiptext'>RETURNING USERS</span>
+            </div>
+          
+          
         </div>
       )}
 
