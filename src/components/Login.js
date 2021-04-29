@@ -26,6 +26,7 @@ export default function Login(props) {
     <div className="login-container">
       <form id="login" onSubmit={handleUserLogin}>
         <div className="email-container">
+          <div className='tooltip' >
           <img
             src={tarotPool[cards[0].rank]}
             alt="Email"
@@ -34,8 +35,11 @@ export default function Login(props) {
           <label htmlFor="email">
             <input type="text" name="email" onChange={handleUserInput} />
           </label>
+          <span className="tooltiptext NU">EMAIL</span>
+          </div>
         </div>
         <div className="password-container">
+          <div className='tooltip'>
           <img
             src={tarotPool[cards[1].rank]}
             alt="Password"
@@ -44,7 +48,10 @@ export default function Login(props) {
           <label htmlFor="password">
             <input type="password" name="password" onChange={handleUserInput} />
           </label>
+          <span className="tooltiptext NU">PASSWORD</span>
+          </div>
         </div>
+        <div className='tooltip' >
         <label htmlFor="submit">
           <input
             type="image"
@@ -55,6 +62,8 @@ export default function Login(props) {
             style={cards[2].reversed ? reversed : {}}
           />
         </label>
+        <span className="tooltiptext">DASHBOARD</span>
+        </div>
       </form>
     </div>
   );
