@@ -47,10 +47,16 @@ $card-container: 175px;
 
 }
 
+
 .tooltip:hover .tooltiptext {
   visibility:visible;
   transition-delay: 1.5s;
   
+}
+.NU {
+  color: white;
+  // border: 1px solid white;
+  margin-top: -72px;
 }
 
 img {

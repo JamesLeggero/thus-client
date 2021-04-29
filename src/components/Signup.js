@@ -1,8 +1,15 @@
 import { React, useEffect } from "react";
 
 export default function Signup(props) {
-
-  const { tarotPool, cards, setCards, reversed, initialLoginState, handleUserInput, handleUserLogin } = props;
+  const {
+    tarotPool,
+    cards,
+    setCards,
+    reversed,
+    initialLoginState,
+    handleUserInput,
+    handleUserLogin,
+  } = props;
 
   useEffect(() => {
     async function getInitialCards() {
@@ -19,19 +26,19 @@ export default function Signup(props) {
     <div className="signup-container">
       <form id="signup" onSubmit={props.handleUserLogin}>
         <div className="email-container">
-          <img 
-            src={tarotPool[cards[0].rank]} 
-            alt="Email" 
-            />
+      <div className='tooltip'>
+          <img src={tarotPool[cards[0].rank]} alt="Email" />
           <label htmlFor="email">
             <input type="text" name="email" onChange={props.handleUserInput} />
           </label>
+          <span className="tooltiptext NU">EMAIL</span>
         </div>
+        </div>
+
+        
         <div className="password-container">
-          <img 
-            src={tarotPool[cards[1].rank]} 
-            alt="Password" 
-          />
+          <div className='tooltip'>
+          <img src={tarotPool[cards[1].rank]} alt="Password" />
           <label htmlFor="password">
             <input
               type="password"
@@ -39,10 +46,10 @@ export default function Signup(props) {
               onChange={props.handleUserInput}
             />
           </label>
-          {/* <label htmlFor='passwordB'>
-                        <input type='password' name='passwordB' />
-                    </label> */}
+          <span className="tooltiptext NU">PASSWORD</span>
         </div>
+        </div>
+        <div className='tooltip'>
         <label htmlFor="submit">
           <input
             type="image"
@@ -52,7 +59,10 @@ export default function Signup(props) {
             alt="Dashboard"
           />
         </label>
+        <span className="tooltiptext">DASHBOARD</span>
+        </div>
       </form>
+      
     </div>
   );
 }
