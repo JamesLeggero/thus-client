@@ -59,6 +59,17 @@ $card-container: 175px;
   margin-top: -72px;
 }
 
+.after-link {
+  
+  // border: 1px solid gold;
+  // display: block;
+  position: relative;
+  top: 2.5px
+  
+  // padding-top: 6px;
+  // height: 19px
+}
+
 img {
   filter: invert(1);
 }
@@ -299,11 +310,16 @@ input[type='text'], input[type='password'] {
       margin: 25px;
 
       // border: 2px solid red;
-      // display: inline-block;
+      display: inline;
       height: $card-height;
       width: $card-width;
-      vertical-align: top;
+      // vertical-align: top;
       filter: invert(1);
     }
   }
+}
+
+.acc-del {
+  position: relative;
+  bottom: 15px
 }

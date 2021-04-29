@@ -80,6 +80,7 @@ export default function Account(props) {
         </div>
     <div className="account-container">
       <div className="stock-add-container">
+        <div className='tooltip' >
         <form
           id="stock-add-form"
           onSubmit={handleUserStockAdd}
@@ -94,6 +95,7 @@ export default function Account(props) {
               style={cards[0].reversed ? reversed : {}}
             />
           </label>
+          
           <label htmlFor="symbol">
             <input
               type="text"
@@ -102,10 +104,16 @@ export default function Account(props) {
               onChange={handleStockInput}
             />
           </label>
+          <span className="tooltiptext" style={{
+            position: 'relative',
+            bottom: '15px'
+          }}>UNIVERSAL DRAW</span>
         </form>
+        </div>
       </div>
 
       <div className="back-to-dashboard-container">
+        <div className='tooltip' >
         <Link to={"/dashboard"}>
           <img
             src={tarotPool[cards[1].rank]}
@@ -113,7 +121,10 @@ export default function Account(props) {
             style={cards[1].reversed ? reversed : {}}
           />
         </Link>
+        <span className="tooltiptext after-link" style={{top: '-0.5px'}}>UNIVERSAL DRAW</span>
+        </div>
       </div>
+      
 
       <form
         id="delete-account"
@@ -123,6 +134,7 @@ export default function Account(props) {
         }}
       >
         <label htmlFor="submit">
+          <div className='tooltip acc-del'>
           <input
             type="image"
             id="delete-account-input"
@@ -131,9 +143,12 @@ export default function Account(props) {
             alt="Delete Account"
             style={cards[2].reversed ? reversed : {}}
           />
+        <span className="tooltiptext">UNIVERSAL DRAW</span>
+          </div>
         </label>
       </form>
-    </div>
+      </div>
+    
     </>
   );
 }

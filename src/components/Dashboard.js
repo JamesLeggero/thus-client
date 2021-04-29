@@ -40,6 +40,7 @@ export default function Dashboard(props) {
     <>
     <div className="dashboard-container">
       {/* {props.user.id > 0 && <EmailHeading email={user.email} />} */}
+      <div className='tooltip'>
 
       <form
         id="user-draw"
@@ -55,9 +56,12 @@ export default function Dashboard(props) {
             style={cards[0].reversed ? reversed : {}}
           />
         </label>
+        <span className="tooltiptext">USER DRAW</span>
       </form>
+      </div>
 
       <div className="to-account-container">
+      <div className='tooltip' >
         <Link to={"/account"}>
           <img
             src={tarotPool[cards[1].rank]}
@@ -65,7 +69,10 @@ export default function Dashboard(props) {
             style={cards[1].reversed ? reversed : {}}
           />
         </Link>
+          <span className="tooltiptext after-link">ACCOUNT</span>
       </div>
+      </div>
+      <div className='tooltip'>
       <form id="logout" onSubmit={handleUserLogout}>
         <label htmlFor="logout">
           <input
@@ -77,10 +84,10 @@ export default function Dashboard(props) {
             style={cards[2].reversed ? reversed : {}}
           />
         </label>
+        <span className="tooltiptext">LOG OUT</span>
       </form>
-      {/* <div className='logout-container' >
-                <img src={death} alt='Death' />
-            </div> */}
+      </div>
+      
     </div>
     <DrawResult drawResult={drawResult} setDrawResult={setDrawResult} />
     </>
